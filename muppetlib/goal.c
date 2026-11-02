@@ -1,6 +1,7 @@
 #include "goal.h"
 
 void handleGoal(World *world, ActiveStateMachine *activeTile) {
+	if (activeTile->type == STATE_MACHINE_MUPPET) {
 		switch (activeTile->data.muppet.goal) {
 		case GOAL_DBG:
 			break;
@@ -28,4 +29,5 @@ void handleGoal(World *world, ActiveStateMachine *activeTile) {
 			activeTile->data.muppet.food--;
 			if (activeTile->data.muppet.food <= 0) activeTile->dead = 1;
 		}
+	}
 }

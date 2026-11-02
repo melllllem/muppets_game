@@ -40,6 +40,7 @@ uint16_t newMuppet(World *world, Coord coord) {
 	activeTile->movementDelay = MUPPET_DEFAULT_MOVEMENT_DELAY;
 	activeTile->data.muppet.animSet.whichanim = ANIM_IDLE;
 	activeTile->data.muppet.goal = GOAL_NONE;
+	activeTile->data.muppet.food = MUPPET_FOOD_INITIAL;
 	setAnimData(&activeTile->data.muppet.animSet.walkAnim, 0, 2, 10);
 	setAnimData(&activeTile->data.muppet.animSet.idleAnim, 2, 2, 10);
 	setAnimData(&activeTile->data.muppet.animSet.deadAnim, 4, 1, 10);

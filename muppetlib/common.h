@@ -34,6 +34,7 @@
 #define MUPPET_DEFAULT_MOVEMENT_DELAY 5
 #define MUPPET_WALK_ANIM_OFSET 0
 #define MUPPET_WALK_ANIM_LEN 2
+#define MUPPET_FOOD_INITIAL 255
 
 typedef Texture TextureAtlas[TEXTURE_ATLAS_SIZE];
 typedef Texture AnimAtlas[ANIM_ATLAS_SIZE];
