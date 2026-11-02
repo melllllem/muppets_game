@@ -8,7 +8,7 @@ void process(World *world) {
 
 		handleanim(activeTile);
 
-		if (activeTile->dead) break;
+		if (activeTile->dead) continue;
 		handleGoal(world, activeTile);
 		handleActiveMovement(world, activeTile);
 	}
