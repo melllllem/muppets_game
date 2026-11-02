@@ -9,7 +9,6 @@ uint16_t addActiveTile(World *world, Coord coord) {
 	world->activeTiles = tmp;
 
 	world->activeTiles[world->activeTileCount].coord = coord;
-	world->activeTiles[world->activeTileCount].data.muppet.target = coord;
 	world->activeTileCount++;
 
 	return 0;

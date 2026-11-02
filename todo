@@ -1,1 +1,3 @@
 DONE - make handleGoal and handleAnim check for the type of activetile/animset
+- fix activestatemachine oclussion
+- add plants

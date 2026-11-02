@@ -53,6 +53,22 @@ void handleInput(World *world) {
 			return;
 		}
 
+		if (IsKeyDown(KEY_K)) {
+			ActiveStateMachine *activeTile = getActiveTile(world, (Coord){x, y});
+			if (!activeTile) return;
+
+			activeTile->data.muppet.food = 0;
+			return;
+		}
+
+		if (IsKeyDown(KEY_L)) {
+			ActiveStateMachine *activeTile = getActiveTile(world, (Coord){x, y});
+			if (!activeTile) return;
+
+			revive(activeTile);
+			return;
+		}
+
 		uint16_t sx = world->currentSelected.x;
 		uint16_t sy = world->currentSelected.y;
 

@@ -7,4 +7,5 @@
 #include "goal.h"
 #include "movement.h"
 
+void idleProc(World *world, ActiveStateMachine *activeTile);
 void process(World *world);

@@ -24,10 +24,5 @@ void handleGoal(World *world, ActiveStateMachine *activeTile) {
 			}
 			break;
 		}
-
-		if (world->frameOfset % 10 == 0) {
-			activeTile->data.muppet.food--;
-			if (activeTile->data.muppet.food <= 0) activeTile->dead = 1;
-		}
 	}
 }
