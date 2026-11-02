@@ -1,0 +1,10 @@
+animation keeps flashing.
+it renders a frame too much, shich happended to be an empty frame.
+however, it appears that the flashing still happends when we do not progress the animation
+at all.
+the bug was that we dont render when it is not time to update.
+moving it to only block the progress did not fix it,
+but the flashing became more rapid.
+the first frame of the animation does not render, so the entire animation must be ofset by
+one frame.
+changing the ofset when initialising animdata fixed the bug.

@@ -1,0 +1,29 @@
+explanation:
+
+there was a bug where spawning a second muppet (creating an ActiveTile) caused a crash.
+these are comments i wrote down for myself to rember this event.
+
+in process function:
+
+evidence this function is the culprit:
+commenting this function out fixed it.
+deleting the line above made the bug happen faster after a second muppet spawned,
+which means removing the delay made the bug happend quicker.
+
+gravity checks a muppet each frame, so it triggers the bug everytime.
+otherwise it is triggered by setting a movement target explicitly.
+the crash happends in the check, meaning the coordinate is wrong.
+
+in isSurrounded function:
+
+it appears that this function is actually succesfully called on both muppets several
+times before it spikes and crashes.
+another interesting thing is that the second one completely takes over the calling,
+without letting the first one in between.
+
+turns out, it is quite random, something is overwriting the second muppet specifically.
+it looks like heap corruption.
+it also appears that it is the first muppet that gets corrupted, and not the second one.
+
+i forgot the sizeof in realloc, everything is coming together now.
+the bug is fixed
