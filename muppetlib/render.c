@@ -42,8 +42,6 @@ void render(World *world) {
 
 	for (uint16_t i=0; i<world->activeTileCount; i++) {
 		ActiveStateMachine *activetile = &world->activeTiles[i];
-		if (activetile->coord.x < originx || activetile->coord.x > targetx) break;
-		if (activetile->coord.y < originy || activetile->coord.y > targety) break;
 
 		AnimData *animdata = getAnimData(activetile);
 		AnimSet *animset = &activetile->data.muppet.animSet;
@@ -53,6 +51,8 @@ void render(World *world) {
 			break;
 		}
 
+		if (activetile->coord.x >= originx && activetile->coord.x <= targetx)
+		if (activetile->coord.y >= originy && activetile->coord.y <= targety)
 		DrawTexture(
 			world->res.animatlas[animdata->animOfset + animset->animProgress],
 			world->activeTiles[i].coord.x * TILE_RES,
