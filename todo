@@ -1,3 +1,4 @@
 DONE - make handleGoal and handleAnim check for the type of activetile/animset
-- fix activestatemachine oclussion
-- add plants
+DONE - fix activestatemachine oclussion
+- add mossplants
+- add muppet eating

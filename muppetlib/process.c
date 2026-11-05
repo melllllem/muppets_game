@@ -1,14 +1,8 @@
 #include "process.h"
 
 void idleProc(World *world, ActiveStateMachine *activeTile) {
-	if (activeTile->type == STATE_MACHINE_MUPPET) {
-		if (world->frameOfset % 10 == 0) {
-			activeTile->data.muppet.food--;
-		}
-
-		if (activeTile->data.muppet.food <= 0) activeTile->dead = 1;
-		else activeTile->dead = 0;
-	}
+	if (activeTile->type == STATE_MACHINE_MUPPET)
+		idleProcMuppet(world, activeTile);
 }
 
 void process(World *world) {

@@ -65,3 +65,13 @@ void setMuppetTarget(World *world, Coord muppet, Coord target) {
 
 	activeTile->data.muppet.target = target;
 }
+
+
+void idleProcMuppet(World *world, ActiveStateMachine *activeTile) {
+	if (world->frameOfset % 10 == 0) {
+		activeTile->data.muppet.food--;
+	}
+
+	if (activeTile->data.muppet.food <= 0) activeTile->dead = 1;
+	else activeTile->dead = 0;
+}
