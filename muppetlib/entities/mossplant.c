@@ -13,6 +13,10 @@ uint16_t newMossPlant(World *world, Coord coord) {
 
 	uint16_t maxGrowth = getRandi(MOSS_PLANT_PEAK_GROWTH_MIN, MOSS_PLANT_PEAK_GROWTH_MAX);
 	activeTile->data.mossplant.maxGrowthStage = maxGrowth;
+	activeTile->data.mossplant.growhtStage = maxGrowth;
+
+	activeTile->dead = 0;
+	activeTile->type = STATE_MACHINE_MOSSPLANT;
 
 	setTile(&world->map[coord.x][coord.y], MOSSPLANT, TXT_MOSSPLANT);
 	return 0;

@@ -10,6 +10,24 @@ void revive(ActiveStateMachine *activeTile) {
 	activeTile->data.muppet.target = activeTile->coord;
 }
 
+uint16_t tryConsume(World *world, Coord muppet, Coord target) {
+	ActiveStateMachine *activeTile = getActiveTile(world, muppet);
+	if (!activeTile) return 1;
+	if (activeTile->type != STATE_MACHINE_MUPPET) return 1;
+
+	ActiveStateMachine *targetTile = getActiveTile(world, target);
+	if (!targetTile) return 1;
+
+	switch (targetTile->type) {
+	case STATE_MACHINE_MOSSPLANT:
+		activeTile->data.muppet.food += targetTile->data.mossplant.growhtStage;
+		targetTile->data.mossplant.growhtStage = 0;
+		break;
+	}
+
+	return 0;
+}
+
 uint16_t moveMuppet(World *world, Coord muppet, Coord dst) {
 	//bounds checking
 	if (dst.x >= WORLD_SIZE_X || dst.y >= WORLD_SIZE_Y) return 1;
@@ -19,6 +37,7 @@ uint16_t moveMuppet(World *world, Coord muppet, Coord dst) {
 	Tile *dstTile = &world->map[dst.x][dst.y];
 	
 	//tiletype validation
+	tryConsume(world, muppet, (Coord){dst.x, dst.y});
 	if (!isTileDiggable(world, (Coord){dst.x, dst.y})) return 1;
 
 	//'delete' the old tile
