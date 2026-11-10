@@ -71,6 +71,7 @@ void handleInput(World *world) {
 
 		if (IsKeyDown(KEY_SEMICOLON)) {
 			newMossPlant(world, (Coord){x, y});
+			printf("ding\n");
 			return;
 		}
 

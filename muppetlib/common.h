@@ -55,6 +55,7 @@ typedef struct {
 		AIR,
 		DIRT,
 		MUPPET,
+		MOSSPLANT,
 	} type;
 	
 	enum : uint8_t {
@@ -62,6 +63,7 @@ typedef struct {
 		TXT_AIR,
 		TXT_DIRT,
 		TXT_MUPPET,
+		TXT_MOSSPLANT,
 	} atlascoord;
 
 } Tile;

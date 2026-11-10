@@ -19,7 +19,7 @@ run: build/muppets.exe
 	cd build && ./muppets.exe
 
 clean:
-	cd tmp && rm -rf .
+	rm -r tmp/*
 	rm build/muppets.exe
 
 build/muppets.exe: tmp/mossplant.o tmp/main.o tmp/activestatemachine.o tmp/anim.o tmp/cmp.o tmp/goal.o tmp/input.o tmp/muppet.o tmp/process.o tmp/render.o tmp/res.o tmp/tile.o tmp/window.o tmp/world.o tmp/movement.o tmp/muppetmath.o
