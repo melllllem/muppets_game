@@ -36,6 +36,9 @@
 #define MUPPET_WALK_ANIM_LEN 2
 #define MUPPET_FOOD_INITIAL 255
 
+#define MOSS_PLANT_PEAK_GROWTH_MIN 25
+#define MOSS_PLANT_PEAK_GROWTH_MAX 35
+
 typedef Texture TextureAtlas[TEXTURE_ATLAS_SIZE];
 typedef Texture AnimAtlas[ANIM_ATLAS_SIZE];
 
@@ -116,7 +119,7 @@ typedef union {
 
 	struct {
 		uint8_t growhtStage;
-		uint8_t juice;
+		uint8_t maxGrowthStage;
 	} mossplant;
 } ActiveStateMachineData;
 

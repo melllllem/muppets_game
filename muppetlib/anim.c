@@ -24,6 +24,8 @@ AnimData *getAnimData(ActiveStateMachine *activeTile) {
 	case ANIM_DEAD: return &activeTile->data.muppet.animSet.deadAnim;
 	default: return NULL;
 	}
+	
+	return NULL;
 }
 
 void handleanim(ActiveStateMachine *activeTile) {

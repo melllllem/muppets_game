@@ -3,6 +3,7 @@
 #include "common.h"
 #include "cmp.h"
 #include "entities/muppet.h"
+#include "entities/mossplant.h"
 #include "window.h"
 #include "anim.h"
 

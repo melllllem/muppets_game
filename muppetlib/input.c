@@ -69,6 +69,11 @@ void handleInput(World *world) {
 			return;
 		}
 
+		if (IsKeyDown(KEY_SEMICOLON)) {
+			newMossPlant(world, (Coord){x, y});
+			return;
+		}
+
 		uint16_t sx = world->currentSelected.x;
 		uint16_t sy = world->currentSelected.y;
 

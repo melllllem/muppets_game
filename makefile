@@ -19,24 +19,11 @@ run: build/muppets.exe
 	cd build && ./muppets.exe
 
 clean:
-	rm tmp/main.o
-	rm tmp/activestatemachine.o
-	rm tmp/anim.o
-	rm tmp/cmp.o
-	rm tmp/goal.o
-	rm tmp/input.o
-	rm tmp/muppet.o
-	rm tmp/process.o
-	rm tmp/render.o
-	rm tmp/res.o
-	rm tmp/tile.o
-	rm tmp/window.o
-	rm tmp/world.o
+	cd tmp && rm -rf .
 	rm build/muppets.exe
-	rm tmp/movement.o
 
-build/muppets.exe: tmp/main.o tmp/activestatemachine.o tmp/anim.o tmp/cmp.o tmp/goal.o tmp/input.o tmp/muppet.o tmp/process.o tmp/render.o tmp/res.o tmp/tile.o tmp/window.o tmp/world.o tmp/movement.o
-	$(CC) $(CFLAGS) tmp/main.o tmp/movement.o tmp/activestatemachine.o tmp/anim.o tmp/cmp.o tmp/goal.o tmp/input.o tmp/muppet.o tmp/process.o tmp/render.o tmp/res.o tmp/tile.o tmp/window.o tmp/world.o -o build/muppets.exe $(BUILDFLAGS)
+build/muppets.exe: tmp/mossplant.o tmp/main.o tmp/activestatemachine.o tmp/anim.o tmp/cmp.o tmp/goal.o tmp/input.o tmp/muppet.o tmp/process.o tmp/render.o tmp/res.o tmp/tile.o tmp/window.o tmp/world.o tmp/movement.o tmp/muppetmath.o
+	$(CC) $(CFLAGS) tmp/main.o tmp/mossplant.o tmp/movement.o tmp/activestatemachine.o tmp/anim.o tmp/cmp.o tmp/goal.o tmp/input.o tmp/muppet.o tmp/process.o tmp/render.o tmp/res.o tmp/tile.o tmp/muppetmath.o tmp/window.o tmp/world.o -o build/muppets.exe $(BUILDFLAGS)
 
 tmp/main.o: main.c muppetlib/common.h
 	$(CC) $(CFLAGS) -c main.c -o tmp/main.o
@@ -79,3 +66,9 @@ tmp/world.o: muppetlib/world.c muppetlib/world.h muppetlib/common.h
 
 tmp/movement.o: muppetlib/movement.c muppetlib/movement.h muppetlib/common.h
 	$(CC) $(CFLAGS) -c muppetlib/movement.c -o tmp/movement.o
+
+tmp/muppetmath.o: muppetlib/muppetmath.c muppetlib/muppetmath.h muppetlib/common.h
+	$(CC) $(CFLAGS) -c muppetlib/muppetmath.c -o tmp/muppetmath.o
+
+tmp/mossplant.o: muppetlib/entities/mossplant.c muppetlib/entities/mossplant.h muppetlib/common.h
+	$(CC) $(CFLAGS) -c muppetlib/entities/mossplant.c -o tmp/mossplant.o

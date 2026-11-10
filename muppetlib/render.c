@@ -42,8 +42,9 @@ void render(World *world) {
 
 	for (uint16_t i=0; i<world->activeTileCount; i++) {
 		ActiveStateMachine *activetile = &world->activeTiles[i];
-
 		AnimData *animdata = getAnimData(activetile);
+		if (!animdata) continue;
+
 		AnimSet *animset = &activetile->data.muppet.animSet;
 
 		if (!animdata) {
