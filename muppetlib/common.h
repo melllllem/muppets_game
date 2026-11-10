@@ -68,7 +68,7 @@ typedef struct {
 
 } Tile;
 
-#define UNDIGABLE_TILES {DBG, MUPPET}
+#define UNDIGABLE_TILES {DBG, MUPPET, MOSSPLANT}
 
 typedef struct {
 	uint16_t x;

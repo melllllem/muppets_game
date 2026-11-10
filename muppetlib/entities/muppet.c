@@ -19,7 +19,6 @@ uint16_t moveMuppet(World *world, Coord muppet, Coord dst) {
 	Tile *dstTile = &world->map[dst.x][dst.y];
 	
 	//tiletype validation
-	if (muppetTile->type != MUPPET) return 1;
 	if (!isTileDiggable(world, (Coord){dst.x, dst.y})) return 1;
 
 	//'delete' the old tile
