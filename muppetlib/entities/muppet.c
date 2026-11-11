@@ -86,7 +86,7 @@ void setMuppetTarget(World *world, Coord muppet, Coord target) {
 
 
 void idleProcMuppet(World *world, ActiveStateMachine *activeTile) {
-	if (world->frameOfset % 10 == 0) {
+	if (world->frameOfset % MUPPET_UPDATE_TIME == 0) {
 		activeTile->data.muppet.food--;
 	}
 

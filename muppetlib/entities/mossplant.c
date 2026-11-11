@@ -25,6 +25,8 @@ uint16_t newMossPlant(World *world, Coord coord) {
 void idleProcMossPlant(World *world, ActiveStateMachine *activeTile) {
 	if (activeTile->type != STATE_MACHINE_MOSSPLANT) return;
 
-	if (activeTile->data.mossplant.growhtStage < activeTile->data.mossplant.maxGrowthStage)
-		activeTile->data.mossplant.growhtStage++;
+	if (world->frameOfset % MOSS_PLANT_UPDATE_TIME == 0) {
+		if (activeTile->data.mossplant.growhtStage < activeTile->data.mossplant.maxGrowthStage)
+			activeTile->data.mossplant.growhtStage++;
+	}
 }

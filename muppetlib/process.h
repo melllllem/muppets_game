@@ -4,6 +4,7 @@
 #include "activestatemachine.h"
 #include "anim.h"
 #include "entities/muppet.h"
+#include "entities/mossplant.h"
 #include "goal.h"
 #include "movement.h"
 

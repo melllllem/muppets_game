@@ -3,6 +3,8 @@
 void idleProc(World *world, ActiveStateMachine *activeTile) {
 	if (activeTile->type == STATE_MACHINE_MUPPET)
 		idleProcMuppet(world, activeTile);
+	if (activeTile->type == STATE_MACHINE_MOSSPLANT)
+		idleProcMossPlant(world, activeTile);
 }
 
 void process(World *world) {
