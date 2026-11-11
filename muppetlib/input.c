@@ -10,10 +10,10 @@ void handleInput(World *world) {
 
 	if (IsKeyPressed(KEY_F11)) toggleFullScreen();
 
-	if (IsKeyDown(KEY_W))	world->camera.target.y -= CAMERA_SPEED / zoomLevel;
-	if (IsKeyDown(KEY_S)) world->camera.target.y += CAMERA_SPEED / zoomLevel;
-	if (IsKeyDown(KEY_A))	world->camera.target.x -= CAMERA_SPEED / zoomLevel;
-	if (IsKeyDown(KEY_D)) world->camera.target.x += CAMERA_SPEED / zoomLevel;
+	if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP))	world->camera.target.y -= CAMERA_SPEED / zoomLevel;
+	if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN)) world->camera.target.y += CAMERA_SPEED / zoomLevel;
+	if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT))	world->camera.target.x -= CAMERA_SPEED / zoomLevel;
+	if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT)) world->camera.target.x += CAMERA_SPEED / zoomLevel;
 
 	if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
 		uint16_t x = (GetMouseX() / zoomLevel + world->camera.target.x) / TILE_RES;

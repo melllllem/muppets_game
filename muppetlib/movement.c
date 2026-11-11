@@ -19,11 +19,15 @@ void handleActiveMovement(World *world, ActiveStateMachine *activeTile) {
 				Coord left = {activeTile->coord.x-1, activeTile->coord.y};
 				Coord right = {activeTile->coord.x+1, activeTile->coord.y};
 				Coord top = {activeTile->coord.x, activeTile->coord.y-1};
+				Coord topleft = {activeTile->coord.x-1, activeTile->coord.y-1};
+				Coord topright = {activeTile->coord.x+1, activeTile->coord.y-1};
 
 				if (
 					!matchTile(world, left, AIR) ||
 					!matchTile(world, right, AIR) ||
-					!matchTile(world, top, AIR)
+					!matchTile(world, top, AIR) ||
+					!matchTile(world, topleft, AIR) ||
+					!matchTile(world, topright, AIR)
 				) {
 					moveMuppet(world, activeTile->coord, dst);
 				}
