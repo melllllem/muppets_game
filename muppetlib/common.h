@@ -66,6 +66,7 @@ typedef struct {
 		TXT_DIRT,
 		TXT_MUPPET,
 		TXT_MOSSPLANT,
+		TXT_MOSSPLANT_EATEN,
 	} atlascoord;
 
 } Tile;

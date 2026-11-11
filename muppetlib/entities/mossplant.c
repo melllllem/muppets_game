@@ -29,4 +29,9 @@ void idleProcMossPlant(World *world, ActiveStateMachine *activeTile) {
 		if (activeTile->data.mossplant.growhtStage < activeTile->data.mossplant.maxGrowthStage)
 			activeTile->data.mossplant.growhtStage++;
 	}
+
+	if (activeTile->data.mossplant.growhtStage < activeTile->data.mossplant.maxGrowthStage / 2)
+		world->map[activeTile->coord.x][activeTile->coord.y].atlascoord = TXT_MOSSPLANT_EATEN;
+	else
+		world->map[activeTile->coord.x][activeTile->coord.y].atlascoord = TXT_MOSSPLANT;
 }
