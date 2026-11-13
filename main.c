@@ -4,9 +4,11 @@
 #include "muppetlib/process.h"
 #include "muppetlib/render.h"
 #include "muppetlib/input.h"
+#include "muppetlib/muppetmath.h"
 
 int main() {
 	init();
+	initRand();
 
 	World *world = newWorld();
 	if (!world) return 1;

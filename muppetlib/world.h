@@ -4,6 +4,8 @@
 #include "tile.h"
 #include "muppetmath.h"
 #include "cmp.h"
+#include "entities/mossplant.h"
+#include "entities/muppet.h"
 
 World *newWorld();
 void endWorld(World **world);

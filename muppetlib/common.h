@@ -41,6 +41,9 @@
 #define MOSS_PLANT_PEAK_GROWTH_MAX 250
 #define MOSS_PLANT_UPDATE_TIME 8
 
+#define MOSS_CAVE_DISTRIBUTION 2000
+#define MOSS_CAVE_DENSITY 3
+
 typedef Texture TextureAtlas[TEXTURE_ATLAS_SIZE];
 typedef Texture AnimAtlas[ANIM_ATLAS_SIZE];
 

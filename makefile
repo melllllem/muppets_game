@@ -22,6 +22,10 @@ clean:
 	rm -r tmp/*
 	rm build/muppets.exe
 
+test:
+	make clean
+	make run
+
 build/muppets.exe: tmp/mossplant.o tmp/main.o tmp/activestatemachine.o tmp/anim.o tmp/cmp.o tmp/goal.o tmp/input.o tmp/muppet.o tmp/process.o tmp/render.o tmp/res.o tmp/tile.o tmp/window.o tmp/world.o tmp/movement.o tmp/muppetmath.o
 	$(CC) $(CFLAGS) tmp/main.o tmp/mossplant.o tmp/movement.o tmp/activestatemachine.o tmp/anim.o tmp/cmp.o tmp/goal.o tmp/input.o tmp/muppet.o tmp/process.o tmp/render.o tmp/res.o tmp/tile.o tmp/muppetmath.o tmp/window.o tmp/world.o -o build/muppets.exe $(BUILDFLAGS)
 

@@ -3,8 +3,9 @@ DONE - fix activestatemachine oclussion
 DONE - add mossplants
 DONE - fix muppets getting stuck after moving trough moss plant
 DONE - add muppet eating
-- add world gen
+DONE - add world gen
 - create itch io page
-- create tutorial
 - refactor
+- create tutorial
 - create sound engine
+- add executable to itch io
