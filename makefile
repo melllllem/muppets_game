@@ -13,14 +13,19 @@ ifeq ($(OS), Windows_NT)
 	endif
 endif
 
-build: build/muppets.exe
+build: init build/muppets.exe
 
-run: build/muppets.exe
+run: build
 	cd build && ./muppets.exe
 
+init:
+	-mkdir tmp
+	-mkdir build
+	cp -r res build
+
 clean:
-	rm -r tmp/*
-	rm build/muppets.exe
+	rm -r tmp/
+	rm -r build/
 
 test:
 	make clean

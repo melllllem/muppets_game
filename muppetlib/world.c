@@ -122,7 +122,7 @@ void worldInit(World *world) {
 	printf("Gen: generating starter cave\n");
 	generate_moss_cave(world, (Coord){WORLD_SIZE_X/2+10, GROUND_LAYER+10});
 	printf("Gen: generating moss caves\n");
-	//generate_moss_caves(world);
+	generate_moss_caves(world);
 	printf("Gen: removing floating blocks\n");
 	remove_floating_blocks(world);
 	printf("Gen: removing air pockets\n");

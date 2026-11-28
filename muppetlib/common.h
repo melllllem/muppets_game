@@ -139,6 +139,7 @@ typedef struct {
 	ActiveStateMachineData data;
 
 	uint8_t dead;
+	uint8_t offscreenproc;
 
 } ActiveStateMachine;
 
