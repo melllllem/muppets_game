@@ -1,5 +1,14 @@
 #include "world.h"
 
+#include <math.h>
+
+#define GVAL_N 5
+#define GVAL_S 10
+
+size_t getGVal(Coord coord) {
+	return (size_t)(sin(coord.x/GVAL_N)*GVAL_N) * (size_t)(sin(coord.y/GVAL_N)*GVAL_N) + coord.y/GVAL_S;
+}
+
 World *newWorld() {
 	World *world = calloc(1, sizeof(World));
 	if (!world) {
@@ -67,33 +76,19 @@ Coord dropdown(World *world, Coord coord, uint8_t on, uint8_t top, uint16_t max)
 	return coord;
 }
 
-void generate_moss_cave(World *world, Coord coord) {
-	uint32_t size = getRandi(20, 150);
+void generate_cave(World *world, Coord coord) {
+	size_t gval = getGVal(coord);
+	size_t minval = gval / 10;
+	uint32_t size = getRandi(minval, gval);
 	carve_simple_cave(world, (Coord){coord.x, coord.y}, size);
-
-	uint16_t xmin = coord.x - size/10;
-	uint16_t xmax = coord.x + size/10;
-	uint16_t ymin = coord.y - size/50;
-	uint16_t ymax = coord.y + size/10;
-	if (xmin < 0) xmin = 0;
-	if (xmax > WORLD_SIZE_X) xmax = WORLD_SIZE_X;
-	if (ymin < GROUND_LAYER) ymin = GROUND_LAYER;
-	if (ymax > WORLD_SIZE_Y) ymax = WORLD_SIZE_Y;
-
-	for (uint8_t i=0; i<MOSS_CAVE_DENSITY; i++)
-	for (uint16_t x = xmin; x<xmax; x++) {
-		Coord res = dropdown(world, (Coord){x, ymin}, DIRT, AIR, ymax);
-		if (res.y == ymax) continue;
-		newMossPlant(world, res);
-	}
 }
 
-void generate_moss_caves(World *world) {
+void generate_caves(World *world) {
 	for (uint32_t x=0; x<WORLD_SIZE_X; x++) {
 		for (uint32_t y=GROUND_LAYER+15; y<WORLD_SIZE_Y; y++) {
 			if (getRandi(0, MOSS_CAVE_DISTRIBUTION) != 0) continue;
 
-			generate_moss_cave(world, (Coord){x, y});
+			generate_cave(world, (Coord){x, y});
 		}
 		printf("%u/%u\n", x, WORLD_SIZE_X);
 	}
@@ -120,9 +115,9 @@ void worldInit(World *world) {
 	}
 
 	printf("Gen: generating starter cave\n");
-	generate_moss_cave(world, (Coord){WORLD_SIZE_X/2+10, GROUND_LAYER+10});
+	generate_cave(world, (Coord){WORLD_SIZE_X/2+10, GROUND_LAYER+10});
 	printf("Gen: generating moss caves\n");
-	generate_moss_caves(world);
+	generate_caves(world);
 	printf("Gen: removing floating blocks\n");
 	remove_floating_blocks(world);
 	printf("Gen: removing air pockets\n");

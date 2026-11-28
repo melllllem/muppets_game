@@ -8,6 +8,7 @@ uint16_t addActiveTile(World *world, Coord coord) {
 	}
 	world->activeTiles = tmp;
 
+	world->activeTiles[world->activeTileCount] = (ActiveStateMachine){0};
 	world->activeTiles[world->activeTileCount].coord = coord;
 	world->activeTileCount++;
 

@@ -3,8 +3,8 @@
 void handleInput(World *world) {
 
 	world->camera.zoom += GetMouseWheelMove() * CAMERA_ZOOM_SPEED;
-	if (world->camera.zoom > ZOOM_MAX) world->camera.zoom = ZOOM_MAX;
-	if (world->camera.zoom < ZOOM_MIN) world->camera.zoom = ZOOM_MIN;
+	//if (world->camera.zoom > ZOOM_MAX) world->camera.zoom = ZOOM_MAX;
+	//if (world->camera.zoom < ZOOM_MIN) world->camera.zoom = ZOOM_MIN;
 
 	float zoomLevel = world->camera.zoom;
 

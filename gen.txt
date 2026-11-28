@@ -1,0 +1,3 @@
+each tile has a generation value gval.
+based on gval ranges a biome is selected, and the cave for that biome is generated.
+When a tile is rendered, it may be replaced by a feature.

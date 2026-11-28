@@ -2,6 +2,7 @@
 
 void revive(ActiveStateMachine *activeTile) {
 	activeTile->dead = 0;
+	activeTile->offscreenproc = 1;
 	activeTile->type = STATE_MACHINE_MUPPET;
 	activeTile->movementDelay = MUPPET_DEFAULT_MOVEMENT_DELAY;
 	activeTile->data.muppet.animSet.whichanim = ANIM_IDLE;
